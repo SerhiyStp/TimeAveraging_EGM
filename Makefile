@@ -103,6 +103,10 @@ $(DOBJ)labor1.o: ./src/labor1.f90 \
 	@echo $(COTEXT)
 	@$(FC) $(OPTSC)  $< -o $@
 
+$(DOBJ)pyplot_module.o: ./src/pyplot_module.f90
+	@echo $(COTEXT)
+	@$(FC) $(OPTSC)  $< -o $@
+
 $(DOBJ)spline.o: ./src/spline.f90
 	@echo $(COTEXT)
 	@$(FC) $(OPTSC)  $< -o $@
@@ -162,7 +166,8 @@ $(DOBJ)solvelastactive.o: ./src/Solvelastactive.f90 \
 $(DOBJ)solveretired_egm.o: ./src/SolveRetired_EGM.f90 \
 	$(DOBJ)model_parameters.o \
 	$(DOBJ)utilities.o \
-	$(DOBJ)policyfunctions.o
+	$(DOBJ)policyfunctions.o \
+	$(DOBJ)pyplot_module.o
 	@echo $(COTEXT)
 	@$(FC) $(OPTSC)  $< -o $@
 

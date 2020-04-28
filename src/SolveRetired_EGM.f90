@@ -16,6 +16,7 @@ contains
     subroutine Compute_DEV(i_t)
     use Utilities, only: LinInterp
     use PolicyFunctions, only: evs_ret, ev_ret, k_grid
+    use pyplot_module
         integer :: i_t
         integer :: j, ik, ix, ia, iu, ifc
         real(8) :: v0, v1, k0, k1
@@ -24,6 +25,9 @@ contains
         integer :: ifcm, ifcf
         real(8) :: eps
         real(8), dimension(:), pointer :: ev_k_ptr
+        type(pyplot) :: plt
+        real(8) :: dev_plot(nk)
+        integer :: ix_plt, ia_plt, iu_plt, ifc_plt
 
         eps = 1.0d-5
 
@@ -40,7 +44,7 @@ contains
                 k1 = k_grid(ik) + eps
                 v0 = LinInterp(k0,k_grid,ev_k_ptr,nk)
                 v1 = LinInterp(k1,k_grid,ev_k_ptr,nk)
-                devs_ret(i1,i2,ik,ix,ia,iu,i_t,ifc ) = &
+                devs_ret(i1,i2,ik,ix,ia,iu,i_t,ifc) = &
                     (v1 - v0)/(2d0*eps)
             end do
         end do
@@ -67,7 +71,7 @@ contains
                 k1 = k_grid(ik) + eps
                 v0 = LinInterp(k0,k_grid,ev_k_ptr,nk)
                 v1 = LinInterp(k1,k_grid,ev_k_ptr,nk)
-                devs_ret(i1,i2,ik,ixm,ixf,iam,ium,iaf,iuf,i_t,ifcm,infcf) = &
+                dev_ret(i1,i2,ik,ixm,ixf,iam,ium,iaf,iuf,i_t,ifcm,ifcf) = &
                     (v1 - v0)/(2d0*eps)
             end do
         end do
@@ -81,6 +85,17 @@ contains
         end do
         end do
 
+        ix_plt = 1
+        ia_plt = 1
+        iu_plt = 1
+        ifc_plt = 1
+        dev_plot = devs_ret(1,1,:,ix_plt,ia_plt,iu_plt,Tret,ifc_plt)
+
+        call plt%initialize(grid=.true.,xlabel='k',&
+            title='MU',legend=.true.)
+        call plt%add_plot(k_grid,dev_plot,label='MU1',linestyle='b-o',markersize=5,linewidth=2)
+        !call plt%savefig('dev.png', pyfile='sinx.py')
+        call plt%savefig('dev.png')
     end subroutine Compute_DEV
 
     subroutine OptimizeRetired_LastPeriod()
