@@ -28,6 +28,8 @@ contains
         type(pyplot) :: plt
         real(8) :: dev_plot(nk)
         integer :: ix_plt, ia_plt, iu_plt, ifc_plt
+        integer :: ixm_plt, iam_plt, ium_plt, ixf_plt, iaf_plt, iuf_plt
+        integer :: ifcm_plt, ifcf_plt
 
         eps = 1.0d-5
 
@@ -93,9 +95,21 @@ contains
 
         call plt%initialize(grid=.true.,xlabel='k',&
             title='MU',legend=.true.)
-        call plt%add_plot(k_grid,dev_plot,label='MU1',linestyle='b-o',markersize=5,linewidth=2)
-        !call plt%savefig('dev.png', pyfile='sinx.py')
-        call plt%savefig('dev.png')
+        call plt%add_plot(k_grid,dev_plot,label='MU (single)',linestyle='b-o',markersize=5,linewidth=2)
+
+        ixm_plt = 1
+        ixf_plt = 1
+        iam_plt = 1
+        iaf_plt = 1
+        ium_plt = 1
+        iuf_plt = 1
+        ifcm_plt = 1
+        ifcf_plt = 1
+        dev_plot = dev_ret(1,1,:,ixm_plt,ixf_plt,iam_plt,ium_plt,iaf_plt,iuf_plt,Tret,ifcm_plt,ifcf_plt)
+
+        call plt%add_plot(k_grid,dev_plot,label='MU (married)',linestyle='r--',markersize=5,linewidth=2)
+        call plt%savefig('dev.png', pyfile='dev.py')
+
     end subroutine Compute_DEV
 
     subroutine OptimizeRetired_LastPeriod()

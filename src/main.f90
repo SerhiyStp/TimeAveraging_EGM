@@ -50,6 +50,9 @@ program Laffer
             !$OMP END PARALLEL
 
             do it=1,Tret
+
+                write(*, "(1x,' Solving retired,age ',i0,A,$)") it, CHAR(13)
+
                 !$OMP PARALLEL PRIVATE(ik)
                 !$OMP DO SCHEDULE(DYNAMIC)
                 do ik=1,nk 

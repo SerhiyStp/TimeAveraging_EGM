@@ -2,3 +2,5 @@ MAIN
 obj/
 mod/
 *.txt
+*.png
+*.py
