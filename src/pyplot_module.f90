@@ -682,7 +682,8 @@
         flush(iunit)
 
         !run the file using python:
-        call execute_command_line(python_exe//' '//file)
+        !call execute_command_line(python_exe//' '//file)
+        call system(python_exe//' '//file)
 
         !close the file:
         if (scratch) then

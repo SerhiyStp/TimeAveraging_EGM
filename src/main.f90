@@ -86,15 +86,9 @@ program Laffer
                 evs_ret(1,:,:,:,:,:,Tret-it+1,:)=vs_ret(1,:,:,:,:,:,Tret-it+1,:)
 
                 call Compute_DEV(Tret-it+1)
+
+                stop
                 
-                ! Compute spline coefficients:
-
-                !call d_csint(k_grid, v_ret(:,Tret-it+1), BREAK, ev_spln_coefs_ret(:,:,Tret-it+1))
-                !call ppp_csint(k_grid, v_ret(:,Tret-it+1), ev_spln_coefs_ret(:,:,Tret-it+1), nk)
-
-                !call d_csint(k_grid, vs_ret(:,Tret-it+1), BREAK, evs_spln_coefs_ret(:,:,Tret-it+1))
-                !call ppp_csint(k_grid, vs_ret(:,Tret-it+1), evs_spln_coefs_ret(:,:,Tret-it+1), nk)
-
             end do
 
 
