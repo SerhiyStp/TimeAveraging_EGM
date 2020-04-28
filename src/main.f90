@@ -51,7 +51,7 @@ program Laffer
 
             do it=1,Tret
 
-                write(*, "(1x,' Solving retired,age ',i0,A,$)") it, CHAR(13)
+                !write(*, "(1x,' Solving retired,age ',i0,A,$)") it, CHAR(13)
 
                 !$OMP PARALLEL PRIVATE(ik)
                 !$OMP DO SCHEDULE(DYNAMIC)
@@ -88,7 +88,7 @@ program Laffer
                 ev_ret(1,1,:,:,:,:,:,:,:,Tret-it+1,:,:)=v_ret(1,1,:,:,:,:,:,:,:,Tret-it+1,:,:)
                 evs_ret(1,:,:,:,:,:,Tret-it+1,:)=vs_ret(1,:,:,:,:,:,Tret-it+1,:)
 
-                call Compute_DEV(Tret-it+1)
+                call Compute_EV_DEV(Tret-it+1)
 
                 stop
                 

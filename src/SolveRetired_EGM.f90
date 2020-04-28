@@ -1,21 +1,25 @@
 module SolveRetired_EGM
 use Model_Parameters
     implicit none
-    real(8), dimension(:,:,:,:,:,:,:,:,:,:,:,:), allocatable, target :: dev_ret
-    real(8), dimension (:,:,:,:,:,:,:,:), allocatable, target :: devs_ret
+    real(8), dimension(:,:,:,:,:,:,:,:,:,:,:), allocatable, target :: dev_ret
+    real(8), dimension (:,:,:,:,:,:,:), allocatable, target :: devs_ret
+    real(8), dimension(:,:,:,:,:,:,:,:,:,:,:), allocatable, target :: evv_ret
+    real(8), dimension (:,:,:,:,:,:,:), allocatable, target :: evvs_ret
 
 contains
 
     subroutine Initialize_Retired()
 
-        allocate(dev_ret(2,2,nk,nexp,nexp,na,nu,na,nu,Tret,nfc,nfc))
-        allocate(devs_ret(2,2,nk,nexp,na,nu,Tret,nfc))
+        allocate(dev_ret(2,2,nk,nexp,nexp,na,nu,na,nu,nfc,nfc))
+        allocate(devs_ret(2,2,nk,nexp,na,nu,nfc))
+        allocate(evv_ret(2,2,nk,nexp,nexp,na,nu,na,nu,nfc,nfc))
+        allocate(evvs_ret(2,2,nk,nexp,na,nu,nfc))
 
     end subroutine Initialize_Retired
 
-    subroutine Compute_DEV(i_t)
+    subroutine Compute_EV_DEV(i_t)
     use Utilities, only: LinInterp
-    use PolicyFunctions, only: evs_ret, ev_ret, k_grid
+    use PolicyFunctions, only: evs_ret, ev_ret, k_grid, vs_ret
     use pyplot_module
         integer :: i_t
         integer :: j, ik, ix, ia, iu, ifc
@@ -30,6 +34,38 @@ contains
         integer :: ix_plt, ia_plt, iu_plt, ifc_plt
         integer :: ixm_plt, iam_plt, ium_plt, ixf_plt, iaf_plt, iuf_plt
         integer :: ifcm_plt, ifcf_plt
+        real(8) :: evvs
+        integer :: iu2
+
+        do j = 1, 2
+            do iu = 1, nu
+                evvs_ret(2,j,:,:,:,iu,:) = 0.0d0
+                do iu2 = 1, nu
+                    evvs_ret(2,j,:,:,:,iu,:) = evvs_ret(2,j,:,:,:,iu,:) + trans_u(j,iu,iu2)*vs_ret(2,j,:,:,:,iu2,i_t,:)
+                    !evvs_ret(2,j,:,:,:,iu,:) = vs_ret(2,j,:,:,:,iu2,i_t,:)
+                end do
+            end do
+        end do
+
+        !do ix = 1, nexp
+        !do ia = 1, na
+        !do iu = 1, nu
+        !do ifc = 1, nfc
+        !do j = 1, 2
+        !do ik = 1, nk
+            !evvs = 0.0d0
+            !do iu2 = 1, nu
+                !evvs = evvs &
+                    !+ trans_u(j,iu,iu2)*vs_ret(2,j,ik,ix,ia,iu2,i_t,ifc)
+            !end do
+            !evvs_ret(2,j,ik,ix,ia,iu,ifc) = evvs
+        !end do
+        !end do
+        !end do
+        !end do
+        !end do
+        !end do
+        evvs_ret(1,:,:,:,:,:,:) = vs_ret(1,:,:,:,:,:,i_t,:)
 
         eps = 1.0d-5
 
@@ -46,7 +82,7 @@ contains
                 k1 = k_grid(ik) + eps
                 v0 = LinInterp(k0,k_grid,ev_k_ptr,nk)
                 v1 = LinInterp(k1,k_grid,ev_k_ptr,nk)
-                devs_ret(i1,i2,ik,ix,ia,iu,i_t,ifc) = &
+                devs_ret(i1,i2,ik,ix,ia,iu,ifc) = &
                     (v1 - v0)/(2d0*eps)
             end do
         end do
@@ -73,7 +109,7 @@ contains
                 k1 = k_grid(ik) + eps
                 v0 = LinInterp(k0,k_grid,ev_k_ptr,nk)
                 v1 = LinInterp(k1,k_grid,ev_k_ptr,nk)
-                dev_ret(i1,i2,ik,ixm,ixf,iam,ium,iaf,iuf,i_t,ifcm,ifcf) = &
+                dev_ret(i1,i2,ik,ixm,ixf,iam,ium,iaf,iuf,ifcm,ifcf) = &
                     (v1 - v0)/(2d0*eps)
             end do
         end do
@@ -91,7 +127,7 @@ contains
         ia_plt = 1
         iu_plt = 1
         ifc_plt = 1
-        dev_plot = devs_ret(1,1,:,ix_plt,ia_plt,iu_plt,Tret,ifc_plt)
+        dev_plot = devs_ret(1,1,:,ix_plt,ia_plt,iu_plt,ifc_plt)
 
         call plt%initialize(grid=.true.,xlabel='k',&
             title='MU',legend=.true.)
@@ -105,12 +141,12 @@ contains
         iuf_plt = 1
         ifcm_plt = 1
         ifcf_plt = 1
-        dev_plot = dev_ret(1,1,:,ixm_plt,ixf_plt,iam_plt,ium_plt,iaf_plt,iuf_plt,Tret,ifcm_plt,ifcf_plt)
+        dev_plot = dev_ret(1,1,:,ixm_plt,ixf_plt,iam_plt,ium_plt,iaf_plt,iuf_plt,ifcm_plt,ifcf_plt)
 
         call plt%add_plot(k_grid,dev_plot,label='MU (married)',linestyle='r--',markersize=5,linewidth=2)
         call plt%savefig('dev.png', pyfile='dev.py')
 
-    end subroutine Compute_DEV
+    end subroutine Compute_EV_DEV
 
     subroutine OptimizeRetired_LastPeriod()
     use PolicyFunctions
