@@ -1,0 +1,288 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+10	pppack.f90	/^10 continue$/;"	l	subroutine:interv	file:
+100	pppack.f90	/^100   continue$/;"	l	subroutine:cubspl	file:
+110	pppack.f90	/^110   continue$/;"	l	subroutine:cubspl	file:
+110	pppack.f90	/^110 continue$/;"	l	subroutine:interv	file:
+120	pppack.f90	/^120   continue$/;"	l	subroutine:cubspl	file:
+160	pppack.f90	/^160   continue$/;"	l	subroutine:cubspl	file:
+20	pppack.f90	/^20 continue$/;"	l	subroutine:interv	file:
+30	pppack.f90	/^30 continue$/;"	l	subroutine:interv	file:
+50	pppack.f90	/^50 continue$/;"	l	subroutine:interv	file:
+90	pppack.f90	/^90    continue$/;"	l	subroutine:cubspl	file:
+AE	Model_Parameters.f90	/^        real(8) :: AE /;"	v	module:Model_Parameters
+EXPORDER	Model_Parameters.f90	/^        integer, parameter :: EXPORDER /;"	v	module:Model_Parameters
+EXP_KNOT	PolicyFunctions.f90	/^        real(8), dimension (:,:), allocatable :: EXP_KNOT$/;"	v	module:PolicyFunctions
+FNORM	glob0.f90	/^    real(8) :: dum,kdum,itg,netinc,wagem,wagef,SOL(1), XGUESS(1), XLB(1), XUB(1), GRAD(1,1), RHS(1),SOL2(2), XGUESS2(2), XLB2(2), XUB2(2), GRAD2(1,2),OBJ,FNORM$/;"	v	module:glob0
+Fc	Model_Parameters.f90	/^        real(8), dimension (:,:), allocatable :: Fc,/;"	v	module:Model_Parameters
+Fcm	Model_Parameters.f90	/^        real(8), dimension (:,:), allocatable :: Fc, Prob_fc, Fcm,/;"	v	module:Model_Parameters
+GRAD	glob0.f90	/^    real(8) :: dum,kdum,itg,netinc,wagem,wagef,SOL(1), XGUESS(1), XLB(1), XUB(1), GRAD(/;"	v	module:glob0
+GRAD2	glob0.f90	/^    real(8) :: dum,kdum,itg,netinc,wagem,wagef,SOL(1), XGUESS(1), XLB(1), XUB(1), GRAD(1,1), RHS(1),SOL2(2), XGUESS2(2), XLB2(2), XUB2(2), GRAD2(/;"	v	module:glob0
+Gamma_redistr	Model_Parameters.f90	/^        real(8) :: Gamma_redistr /;"	v	module:Model_Parameters
+ITMAX	glob0.f90	/^    integer :: MAXFCN,ITMAX,/;"	v	module:glob0
+Initialize	main.f90	/^    subroutine Initialize(/;"	s	program:Laffer
+KORDER	Model_Parameters.f90	/^        integer, parameter :: KORDER /;"	v	module:Model_Parameters
+K_KNOT	PolicyFunctions.f90	/^        real(8), dimension (:), allocatable :: K_KNOT$/;"	v	module:PolicyFunctions
+Laffer	main.f90	/^program Laffer$/;"	p
+LinInterp	Utilities.f90	/^    function LinInterp(/;"	f	module:Utilities
+MAXFCN	glob0.f90	/^    integer :: MAXFCN,/;"	v	module:glob0
+MakeGrid	Utilities.f90	/^    subroutine MakeGrid(/;"	s	module:Utilities
+Model_Parameters	Model_Parameters.f90	/^module Model_Parameters$/;"	m
+OBJ	glob0.f90	/^    real(8) :: dum,kdum,itg,netinc,wagem,wagef,SOL(1), XGUESS(1), XLB(1), XUB(1), GRAD(1,1), RHS(1),SOL2(2), XGUESS2(2), XLB2(2), XUB2(2), GRAD2(1,2),OBJ,/;"	v	module:glob0
+OmegaActive	Model_Parameters.f90	/^        real(8), dimension (:), allocatable :: OmegaRet, OmegaRet2, OmegaActive,/;"	v	module:Model_Parameters
+OmegaRet	Model_Parameters.f90	/^        real(8), dimension (:), allocatable :: OmegaRet,/;"	v	module:Model_Parameters
+OmegaRet2	Model_Parameters.f90	/^        real(8), dimension (:), allocatable :: OmegaRet, OmegaRet2,/;"	v	module:Model_Parameters
+PolicyFunctions	PolicyFunctions.f90	/^    module PolicyFunctions$/;"	m
+Prob_a	Model_Parameters.f90	/^        real(8), dimension (:,:), allocatable :: a, Prob_a /;"	v	module:Model_Parameters
+Prob_fc	Model_Parameters.f90	/^        real(8), dimension (:,:), allocatable :: Fc, Prob_fc,/;"	v	module:Model_Parameters
+Prob_fcm	Model_Parameters.f90	/^        real(8), dimension (:,:), allocatable :: Fc, Prob_fc, Fcm,  Prob_fcm /;"	v	module:Model_Parameters
+Prob_u	Model_Parameters.f90	/^        real(8), dimension (:,:), allocatable :: u, Prob_u /;"	v	module:Model_Parameters
+Probd	Model_Parameters.f90	/^        real(8), dimension (:), allocatable :: OmegaRet, OmegaRet2, OmegaActive, Probm, Probd$/;"	v	module:Model_Parameters
+Probm	Model_Parameters.f90	/^        real(8), dimension (:), allocatable :: OmegaRet, OmegaRet2, OmegaActive, Probm,/;"	v	module:Model_Parameters
+Psi_pension	Model_Parameters.f90	/^        real(8) :: Psi_pension /;"	v	module:Model_Parameters
+RHS	glob0.f90	/^    real(8) :: dum,kdum,itg,netinc,wagem,wagef,SOL(1), XGUESS(1), XLB(1), XUB(1), GRAD(1,1), RHS(/;"	v	module:glob0
+Random1f	Model_Parameters.f90	/^        real(8), dimension (:,:), allocatable :: Random1m, Random2m, Random1f,/;"	v	module:Model_Parameters
+Random1m	Model_Parameters.f90	/^        real(8), dimension (:,:), allocatable :: Random1m,/;"	v	module:Model_Parameters
+Random2f	Model_Parameters.f90	/^        real(8), dimension (:,:), allocatable :: Random1m, Random2m, Random1f, Random2f,/;"	v	module:Model_Parameters
+Random2m	Model_Parameters.f90	/^        real(8), dimension (:,:), allocatable :: Random1m, Random2m,/;"	v	module:Model_Parameters
+Random3f	Model_Parameters.f90	/^        real(8), dimension (:,:,:), allocatable :: Random3m, Random3f,/;"	v	module:Model_Parameters
+Random3m	Model_Parameters.f90	/^        real(8), dimension (:,:,:), allocatable :: Random3m,/;"	v	module:Model_Parameters
+SOL	glob0.f90	/^    real(8) :: dum,kdum,itg,netinc,wagem,wagef,SOL(/;"	v	module:glob0
+SOL2	glob0.f90	/^    real(8) :: dum,kdum,itg,netinc,wagem,wagef,SOL(1), XGUESS(1), XLB(1), XUB(1), GRAD(1,1), RHS(1),SOL2(/;"	v	module:glob0
+Sim1f	Model_Parameters.f90	/^        real(8), dimension (:,:,:,:), allocatable :: Sim1m,Sim1f,/;"	v	module:Model_Parameters
+Sim1m	Model_Parameters.f90	/^        real(8), dimension (:,:,:,:), allocatable :: Sim1m,/;"	v	module:Model_Parameters
+SimR1f	Model_Parameters.f90	/^        real(8), dimension (:,:,:,:), allocatable :: SimR1m, SimR1f /;"	v	module:Model_Parameters
+SimR1m	Model_Parameters.f90	/^        real(8), dimension (:,:,:,:), allocatable :: SimR1m,/;"	v	module:Model_Parameters
+SolveActiveLife	SolveActiveLife.f90	/^subroutine SolveActiveLife(/;"	s
+SolveInRetirement	SolveInRetirement.f90	/^subroutine SolveInRetirement(/;"	s
+SolveInRetirement2	SolveInRetirement.f90	/^subroutine SolveInRetirement2(/;"	s
+SolveInRetirement3	SolveInRetirement.f90	/^subroutine SolveInRetirement3(/;"	s
+Solvefirstactive	Solvefirstactive.f90	/^subroutine Solvefirstactive(/;"	s
+Solvelastactive	Solvelastactive.f90	/^subroutine Solvelastactive(/;"	s
+Statistics	Statistics.f90	/^subroutine Statistics$/;"	s
+T	Model_Parameters.f90	/^        integer, parameter :: T /;"	v	module:Model_Parameters
+TAUCHEN	tauchen.f90	/^MODULE TAUCHEN$/;"	m
+Tret	Model_Parameters.f90	/^        integer, parameter :: Tret /;"	v	module:Model_Parameters
+Uc	Utilities.f90	/^    function Uc(/;"	f	module:Utilities
+Ul	Utilities.f90	/^    function Ul(/;"	f	module:Utilities
+Unemp_benefit	Model_Parameters.f90	/^        real(8) :: Unemp_benefit,/;"	v	module:Model_Parameters
+Utilities	Utilities.f90	/^module Utilities$/;"	m
+WeightActive	Model_Parameters.f90	/^        real(8), dimension (:), allocatable :: WeightRet, WeightActive$/;"	v	module:Model_Parameters
+WeightRet	Model_Parameters.f90	/^        real(8), dimension (:), allocatable :: WeightRet,/;"	v	module:Model_Parameters
+XGUESS	glob0.f90	/^    real(8) :: dum,kdum,itg,netinc,wagem,wagef,SOL(1), XGUESS(/;"	v	module:glob0
+XGUESS2	glob0.f90	/^    real(8) :: dum,kdum,itg,netinc,wagem,wagef,SOL(1), XGUESS(1), XLB(1), XUB(1), GRAD(1,1), RHS(1),SOL2(2), XGUESS2(/;"	v	module:glob0
+XLB	glob0.f90	/^    real(8) :: dum,kdum,itg,netinc,wagem,wagef,SOL(1), XGUESS(1), XLB(/;"	v	module:glob0
+XLB2	glob0.f90	/^    real(8) :: dum,kdum,itg,netinc,wagem,wagef,SOL(1), XGUESS(1), XLB(1), XUB(1), GRAD(1,1), RHS(1),SOL2(2), XGUESS2(2), XLB2(/;"	v	module:glob0
+XUB	glob0.f90	/^    real(8) :: dum,kdum,itg,netinc,wagem,wagef,SOL(1), XGUESS(1), XLB(1), XUB(/;"	v	module:glob0
+XUB2	glob0.f90	/^    real(8) :: dum,kdum,itg,netinc,wagem,wagef,SOL(1), XGUESS(1), XLB(1), XUB(1), GRAD(1,1), RHS(1),SOL2(2), XGUESS2(2), XLB2(2), XUB2(/;"	v	module:glob0
+a	Model_Parameters.f90	/^        real/;"	v	module:Model_Parameters
+ability_prob	PolicyFunctions.f90	/^        real(8), dimension (:,:), allocatable :: ability_prob$/;"	v	module:PolicyFunctions
+alpha	Model_Parameters.f90	/^        real(8), parameter :: alpha /;"	v	module:Model_Parameters
+beta	Model_Parameters.f90	/^        real(8), parameter :: beta /;"	v	module:Model_Parameters
+bilin_interp	Utilities.f90	/^    function bilin_interp(/;"	f	module:Utilities
+break	PolicyFunctions.f90	/^        real(8), dimension (:), allocatable :: break$/;"	v	module:PolicyFunctions
+c	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:), alloca/;"	v	module:PolicyFunctions
+c_grid	PolicyFunctions.f90	/^        real(8), dimension (:), allocatable :: c_grid$/;"	v	module:PolicyFunctions
+c_ret	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:,:,:), allocatable :: c_ret,/;"	v	module:PolicyFunctions
+cdum	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:), allocatable :: c,cdum$/;"	v	module:PolicyFunctions
+chif	Model_Parameters.f90	/^        real(8) :: chif=/;"	v	module:Model_Parameters
+chifs	Model_Parameters.f90	/^        real(8) :: chif= 5.00d0,   chifs=/;"	v	module:Model_Parameters
+chim	Model_Parameters.f90	/^        real(8) :: chim=/;"	v	module:Model_Parameters
+chims	Model_Parameters.f90	/^        real(8) :: chim= 13.00d0,    chims=/;"	v	module:Model_Parameters
+cons_floor	Model_Parameters.f90	/^        real(8), parameter :: cons_floor /;"	v	module:Model_Parameters
+counter	main.f90	/^    integer :: ik,tprint,it2,it3,it4,ium,iam,iuf,iaf,ix,j,iu2,ik2,ifc,counter$/;"	v	program:Laffer
+cs	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:), allocatable :: cs$/;"	v	module:PolicyFunctions
+cs_ret	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:), allocatable :: cs_ret$/;"	v	module:PolicyFunctions
+cubspl	pppack.f90	/^subroutine cubspl /;"	s	module:pppack
+debttoGDP	Model_Parameters.f90	/^        real(8) :: debttoGDP=/;"	v	module:Model_Parameters
+delta	Model_Parameters.f90	/^        real(8), parameter :: delta /;"	v	module:Model_Parameters
+deltaexp	Model_Parameters.f90	/^        real(8), parameter :: deltaexp /;"	v	module:Model_Parameters
+dum	glob0.f90	/^    real(8) :: dum,/;"	v	module:glob0
+dum	main.f90	/^    real(8) :: dum,/;"	v	program:Laffer
+dum2	main.f90	/^    real(8) :: dum,dum2,/;"	v	program:Laffer
+dum3	main.f90	/^    real(8) :: dum,dum2,dum3$/;"	v	program:Laffer
+epsilon	Model_Parameters.f90	/^        real(8) :: epsilon=/;"	v	module:Model_Parameters
+epsilon2	Model_Parameters.f90	/^        real(8) :: epsilon=1d0, epsilon2=/;"	v	module:Model_Parameters
+epsilon3	Model_Parameters.f90	/^        real(8) :: epsilon=1d0, epsilon2=1d0, epsilon3=/;"	v	module:Model_Parameters
+epsilon4	Model_Parameters.f90	/^        real(8) :: epsilon=1d0, epsilon2=1d0, epsilon3=1d0, epsilon4=/;"	v	module:Model_Parameters
+epsilon5	Model_Parameters.f90	/^        real(8) :: epsilon=1d0, epsilon2=1d0, epsilon3=1d0, epsilon4=1d0, epsilon5=/;"	v	module:Model_Parameters
+epsilon6	Model_Parameters.f90	/^        real(8) :: epsilon=1d0, epsilon2=1d0, epsilon3=1d0, epsilon4=1d0, epsilon5=1d0, epsilon6=/;"	v	module:Model_Parameters
+etaf	Model_Parameters.f90	/^        real(8), parameter :: etaf /;"	v	module:Model_Parameters
+etam	Model_Parameters.f90	/^        real(8), parameter :: etam /;"	v	module:Model_Parameters
+ev	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:), allocatable :: ev$/;"	v	module:PolicyFunctions
+ev_ret	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:,:,:), allocatable :: c_ret, v_ret, ev_ret$/;"	v	module:PolicyFunctions
+ev_spln_coefs	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:), allocatable :: ev_spln_coefs$/;"	v	module:PolicyFunctions
+ev_spln_coefs_ret	PolicyFunctions.f90	/^        real(8), dimension (:,:,:), allocatable :: ev_spln_coefs_ret,/;"	v	module:PolicyFunctions
+evm	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:), allocatable :: evm /;"	v	module:PolicyFunctions
+evm_spln_coefs	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:), allocatable :: evm_spln_coefs /;"	v	module:PolicyFunctions
+evs	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:), allocatable :: evs$/;"	v	module:PolicyFunctions
+evs_ret	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:), allocatable :: vs_ret, evs_ret$/;"	v	module:PolicyFunctions
+evs_spln_coefs	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:), allocatable :: evs_spln_coefs,/;"	v	module:PolicyFunctions
+evs_spln_coefs_ret	PolicyFunctions.f90	/^        real(8), dimension (:,:,:), allocatable :: ev_spln_coefs_ret,evs_spln_coefs_ret$/;"	v	module:PolicyFunctions
+exp1f	Model_Parameters.f90	/^        integer, dimension (:,:,:,:), allocatable :: exp1m,exp1f,/;"	v	module:Model_Parameters
+exp1m	Model_Parameters.f90	/^        integer, dimension (:,:,:,:), allocatable :: exp1m,/;"	v	module:Model_Parameters
+exp2f	Model_Parameters.f90	/^        real(8), dimension (:,:,:,:), allocatable :: Sim1m,Sim1f,exp2m,exp2f /;"	v	module:Model_Parameters
+exp2m	Model_Parameters.f90	/^        real(8), dimension (:,:,:,:), allocatable :: Sim1m,Sim1f,exp2m,/;"	v	module:Model_Parameters
+expR1f	Model_Parameters.f90	/^        integer, dimension (:,:,:,:), allocatable :: exp1m,exp1f,expR1f,/;"	v	module:Model_Parameters
+expR1m	Model_Parameters.f90	/^        integer, dimension (:,:,:,:), allocatable :: exp1m,exp1f,expR1f,expR1m /;"	v	module:Model_Parameters
+exp_grid	PolicyFunctions.f90	/^        real(8), dimension (:,:), allocatable :: exp_grid$/;"	v	module:PolicyFunctions
+fpartner	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:), allocatable :: fpartner,/;"	v	module:PolicyFunctions
+fpartnerdum	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:), allocatable :: fpartner,fpartnerdum,/;"	v	module:PolicyFunctions
+fpartnerdum2	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:), allocatable :: fpartner,fpartnerdum,fpartnerdum2$/;"	v	module:PolicyFunctions
+gamma	Model_Parameters.f90	/^        real(8) :: gamma(/;"	v	module:Model_Parameters
+gamma0	Model_Parameters.f90	/^        real(8) :: gamma(2,3), gamma0 /;"	v	module:Model_Parameters
+gkdum	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:), allocatable :: k,gkdum$/;"	v	module:PolicyFunctions
+glob0	glob0.f90	/^module glob0$/;"	m
+i	main.f90	/^    in/;"	v	program:Laffer
+i_k	main.f90	/^    integer :: i_k,/;"	v	program:Laffer
+iaf	main.f90	/^    integer :: ik,tprint,it2,it3,it4,ium,iam,iuf,iaf,/;"	v	program:Laffer
+iam	main.f90	/^    integer :: ik,tprint,it2,it3,it4,ium,iam,/;"	v	program:Laffer
+ifc	main.f90	/^    integer :: ik,tprint,it2,it3,it4,ium,iam,iuf,iaf,ix,j,iu2,ik2,ifc,/;"	v	program:Laffer
+ik	main.f90	/^    integer :: ik,/;"	v	program:Laffer
+ik2	main.f90	/^    integer :: ik,tprint,it2,it3,it4,ium,iam,iuf,iaf,ix,j,iu2,ik2,/;"	v	program:Laffer
+ind	glob0.f90	/^    integer :: MAXFCN,ITMAX,ind,/;"	v	module:glob0
+ind2	glob0.f90	/^    integer :: MAXFCN,ITMAX,ind,ind2,/;"	v	module:glob0
+ind3	glob0.f90	/^    integer :: MAXFCN,ITMAX,ind,ind2,ind3$/;"	v	module:glob0
+interv	pppack.f90	/^subroutine interv /;"	s	module:pppack
+it	Model_Parameters.f90	/^        integer :: it,/;"	v	module:Model_Parameters
+it2	main.f90	/^    integer :: ik,tprint,it2,/;"	v	program:Laffer
+it3	main.f90	/^    integer :: ik,tprint,it2,it3,/;"	v	program:Laffer
+it4	main.f90	/^    integer :: ik,tprint,it2,it3,it4,/;"	v	program:Laffer
+iter	Model_Parameters.f90	/^        integer :: it,iter$/;"	v	module:Model_Parameters
+itg	glob0.f90	/^    real(8) :: dum,kdum,itg,/;"	v	module:glob0
+iu2	main.f90	/^    integer :: ik,tprint,it2,it3,it4,ium,iam,iuf,iaf,ix,j,iu2,/;"	v	program:Laffer
+iuf	main.f90	/^    integer :: ik,tprint,it2,it3,it4,ium,iam,iuf,/;"	v	program:Laffer
+ium	main.f90	/^    integer :: ik,tprint,it2,it3,it4,ium,/;"	v	program:Laffer
+ix	main.f90	/^    integer :: ik,tprint,it2,it3,it4,ium,iam,iuf,iaf,ix,/;"	v	program:Laffer
+j	main.f90	/^    integer :: ik,tprint,it2,it3,it4,ium,iam,iuf,iaf,ix,j,/;"	v	program:Laffer
+k	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:), allocatable :: k,/;"	v	module:PolicyFunctions
+k_grid	PolicyFunctions.f90	/^        real(8), dimension (:), allocatable :: k_grid$/;"	v	module:PolicyFunctions
+k_ret	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:,:,:), allocatable :: k_ret,/;"	v	module:PolicyFunctions
+kdum	glob0.f90	/^    real(8) :: dum,kdum,/;"	v	module:glob0
+ks	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:), allocatable :: ks$/;"	v	module:PolicyFunctions
+ks_ret	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:), allocatable :: ks_ret,/;"	v	module:PolicyFunctions
+labor1	labor1.f90	/^SUBROUTINE labor1 /;"	s
+labor1_hybrd	labor1.f90	/^subroutine labor1_hybrd(/;"	s
+labor2	labor2.f90	/^SUBROUTINE labor2 /;"	s
+labor2_hybrd	labor2.f90	/^subroutine labor2_hybrd(/;"	s
+labor3	labor3.f90	/^SUBROUTINE labor3 /;"	s
+labor3_hybrd	labor3.f90	/^subroutine labor3_hybrd(/;"	s
+laborf	PolicyFunctions.f90	/^        real(8), dimension (:,:,:), allocatable :: laborm,laborf$/;"	v	module:PolicyFunctions
+laborfwork	PolicyFunctions.f90	/^        real(8), dimension (:,:), allocatable :: labormwork,laborfwork$/;"	v	module:PolicyFunctions
+laborm	PolicyFunctions.f90	/^        real(8), dimension (:,:,:), allocatable :: laborm,/;"	v	module:PolicyFunctions
+labormwork	PolicyFunctions.f90	/^        real(8), dimension (:,:), allocatable :: labormwork,/;"	v	module:PolicyFunctions
+labors	labors.f90	/^SUBROUTINE labors /;"	s
+labors_hybrd	labors.f90	/^subroutine labors_hybrd(/;"	s
+laborsinglef	PolicyFunctions.f90	/^        real(8), dimension (:,:), allocatable :: laborsinglem,laborsinglef$/;"	v	module:PolicyFunctions
+laborsinglem	PolicyFunctions.f90	/^        real(8), dimension (:,:), allocatable :: laborsinglem,/;"	v	module:PolicyFunctions
+locate	Utilities.f90	/^    function locate(/;"	f	module:Utilities
+lsupply	lsupply.f90	/^subroutine lsupply(/;"	s
+lumpsum	Model_Parameters.f90	/^        real(8) :: Unemp_benefit, lumpsum=/;"	v	module:Model_Parameters
+lumpsumdum	Model_Parameters.f90	/^        real(8) :: Unemp_benefit, lumpsum=2d0*0.009366269879639575d0, lumpsumdum=/;"	v	module:Model_Parameters
+marstatf	Model_Parameters.f90	/^        real(8), dimension (:,:,:), allocatable :: Random3m, Random3f, marstatm, marstatf,/;"	v	module:Model_Parameters
+marstatf_init	Model_Parameters.f90	/^        real(8), dimension (:,:), allocatable :: Random1m, Random2m, Random1f, Random2f, marstatm_init, marstatf_init$/;"	v	module:Model_Parameters
+marstatm	Model_Parameters.f90	/^        real(8), dimension (:,:,:), allocatable :: Random3m, Random3f, marstatm,/;"	v	module:Model_Parameters
+marstatm_init	Model_Parameters.f90	/^        real(8), dimension (:,:), allocatable :: Random1m, Random2m, Random1f, Random2f, marstatm_init,/;"	v	module:Model_Parameters
+match	Model_Parameters.f90	/^        real(8) :: match=/;"	v	module:Model_Parameters
+milspendtoGDP	Model_Parameters.f90	/^        real(8) :: milspendtoGDP=/;"	v	module:Model_Parameters
+mpartner	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:), allocatable :: mpartner,/;"	v	module:PolicyFunctions
+mpartnerdum	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:), allocatable :: mpartner,mpartnerdum,/;"	v	module:PolicyFunctions
+mpartnerdum2	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:), allocatable :: mpartner,mpartnerdum,mpartnerdum2$/;"	v	module:PolicyFunctions
+mu	Model_Parameters.f90	/^        real(8), parameter :: mu /;"	v	module:Model_Parameters
+mu_fcm	Model_Parameters.f90	/^        real(8), parameter :: mu_fcm=/;"	v	module:Model_Parameters
+mu_fcmm	Model_Parameters.f90	/^        real(8), parameter :: mu_fcmm=/;"	v	module:Model_Parameters
+mu_fcs	Model_Parameters.f90	/^        real(8), parameter :: mu_fcm=-1.70d0, mu_fcs=/;"	v	module:Model_Parameters
+mu_fcsm	Model_Parameters.f90	/^        real(8), parameter :: mu_fcmm=-0.60d0, mu_fcsm=/;"	v	module:Model_Parameters
+na	Model_Parameters.f90	/^        integer, parameter :: na /;"	v	module:Model_Parameters
+nc	Model_Parameters.f90	/^        integer, parameter :: nc /;"	v	module:Model_Parameters
+netinc	glob0.f90	/^    real(8) :: dum,kdum,itg,netinc,/;"	v	module:glob0
+nexp	Model_Parameters.f90	/^        integer, parameter :: nexp /;"	v	module:Model_Parameters
+nf	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:), allocatable :: nm,nf,/;"	v	module:PolicyFunctions
+nf_ret	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:,:,:), allocatable :: k_ret, nf_ret,/;"	v	module:PolicyFunctions
+nfc	Model_Parameters.f90	/^        integer, parameter :: nfc /;"	v	module:Model_Parameters
+nfdum	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:), allocatable :: nm,nf,nmdum,nfdum$/;"	v	module:PolicyFunctions
+nk	Model_Parameters.f90	/^        integer, parameter :: nk /;"	v	module:Model_Parameters
+nm	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:), allocatable :: nm,/;"	v	module:PolicyFunctions
+nm_ret	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:,:,:), allocatable :: k_ret, nf_ret, nm_ret$/;"	v	module:PolicyFunctions
+nmdum	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:), allocatable :: nm,nf,nmdum,/;"	v	module:PolicyFunctions
+ns	PolicyFunctions.f90	/^        real(8), dimensi/;"	v	module:PolicyFunctions
+ns_ret	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:), allocatable :: ks_ret, ns_ret$/;"	v	module:PolicyFunctions
+nsim	Model_Parameters.f90	/^        integer, parameter :: nsim /;"	v	module:Model_Parameters
+nsim2	Model_Parameters.f90	/^        integer, parameter :: nsim2 /;"	v	module:Model_Parameters
+nu	Model_Parameters.f90	/^        integer, parameter :: nu /;"	v	module:Model_Parameters
+nw	Model_Parameters.f90	/^        integer, parameter :: nw /;"	v	module:Model_Parameters
+p_ev_spln_coefs_ret	PolicyFunctions.f90	/^        real(8), dimension (:,:,:), allocatable :: p_ev_spln_coefs_ret,/;"	v	module:PolicyFunctions
+p_evs_spln_coefs_ret	PolicyFunctions.f90	/^        real(8), dimension (:,:,:), allocatable :: p_ev_spln_coefs_ret,p_evs_spln_coefs_ret /;"	v	module:PolicyFunctions
+partest	partest.f90	/^subroutine partest(/;"	s
+partest2	partest.f90	/^subroutine partest2(/;"	s
+partest3	partest.f90	/^subroutine partest3(/;"	s
+partest4	partest.f90	/^subroutine partest4(/;"	s
+partest5	partest.f90	/^subroutine partest5(/;"	s
+partest6	partest.f90	/^subroutine partest6(/;"	s
+partest7	partest.f90	/^subroutine partest7(/;"	s
+partest8	partest.f90	/^subroutine partest8(/;"	s
+partest9	partest.f90	/^subroutine partest9(/;"	s
+partshock	Model_Parameters.f90	/^        real(8), dimension (:,:,:), allocatable :: Random3m, Random3f, marstatm, marstatf, partshock,/;"	v	module:Model_Parameters
+partshock2	Model_Parameters.f90	/^        real(8), dimension (:,:,:), allocatable :: Random3m, Random3f, marstatm, marstatf, partshock, partshock2$/;"	v	module:Model_Parameters
+ppp_csint	PolicyFunctions.f90	/^    subroutine ppp_csint(/;"	s	module:PolicyFunctions
+ppp_csval	PolicyFunctions.f90	/^    function ppp_csval(/;"	f	module:PolicyFunctions
+pppack	pppack.f90	/^module pppack$/;"	m
+ppvalu	pppack.f90	/^function ppvalu /;"	f	module:pppack
+r	Model_Parameters.f90	/^        re/;"	v	module:Model_Parameters
+ratio	Model_Parameters.f90	/^        real(8) :: ratio=/;"	v	module:Model_Parameters
+ratiodum	Model_Parameters.f90	/^        real(8) :: ratio=4.28978442524046d0, ratiodum=/;"	v	module:Model_Parameters
+rho_af	Model_Parameters.f90	/^        real(8), parameter :: sigma_af=0.38475527d0, rho_af=/;"	v	module:Model_Parameters
+rho_am	Model_Parameters.f90	/^        real(8), parameter :: sigma_am=0.31469361d0, rho_am=/;"	v	module:Model_Parameters
+rho_fcm	Model_Parameters.f90	/^        real(8), parameter :: sigma_fcm=0.45d0, rho_fcm=/;"	v	module:Model_Parameters
+rho_fcmm	Model_Parameters.f90	/^        real(8), parameter :: sigma_fcmm=0.25d0, rho_fcmm=/;"	v	module:Model_Parameters
+rho_fcs	Model_Parameters.f90	/^        real(8), parameter :: sigma_fcs=2.5d0, rho_fcs=/;"	v	module:Model_Parameters
+rho_fcsm	Model_Parameters.f90	/^        real(8), parameter :: sigma_fcsm=0.45d0, rho_fcsm=/;"	v	module:Model_Parameters
+rho_uf	Model_Parameters.f90	/^        real(8), parameter :: sigma_uf=0.31004311d0, rho_uf=/;"	v	module:Model_Parameters
+rho_um	Model_Parameters.f90	/^        real(8), parameter :: sigma_um=0.32228727D0, rho_um=/;"	v	module:Model_Parameters
+sigma	Model_Parameters.f90	/^        real(8), parameter :: sigma /;"	v	module:Model_Parameters
+sigma_af	Model_Parameters.f90	/^        real(8), parameter :: sigma_af=/;"	v	module:Model_Parameters
+sigma_am	Model_Parameters.f90	/^        real(8), parameter :: sigma_am=/;"	v	module:Model_Parameters
+sigma_fcm	Model_Parameters.f90	/^        real(8), parameter :: sigma_fcm=/;"	v	module:Model_Parameters
+sigma_fcmm	Model_Parameters.f90	/^        real(8), parameter :: sigma_fcmm=/;"	v	module:Model_Parameters
+sigma_fcs	Model_Parameters.f90	/^        real(8), parameter :: sigma_fcs=/;"	v	module:Model_Parameters
+sigma_fcsm	Model_Parameters.f90	/^        real(8), parameter :: sigma_fcsm=/;"	v	module:Model_Parameters
+sigma_uf	Model_Parameters.f90	/^        real(8), parameter :: sigma_uf=/;"	v	module:Model_Parameters
+sigma_um	Model_Parameters.f90	/^        real(8), parameter :: sigma_um=/;"	v	module:Model_Parameters
+simulation	Simulation.f90	/^subroutine simulation(/;"	s
+tSS_employee	Utilities.f90	/^    function tSS_employee(/;"	f	module:Utilities
+tSS_employer	Utilities.f90	/^    function tSS_employer(/;"	f	module:Utilities
+t_employee	Model_Parameters.f90	/^        real(8), parameter :: t_employer=0.0765d0, t_employee=/;"	v	module:Model_Parameters
+t_employer	Model_Parameters.f90	/^        real(8), parameter :: t_employer=/;"	v	module:Model_Parameters
+tauchen_hans	tauchen.f90	/^Subroutine tauchen_hans(/;"	s	module:TAUCHEN
+tax_labor	Utilities.f90	/^    function tax_labor(/;"	f	module:Utilities
+tax_labors	Utilities.f90	/^    function tax_labors(/;"	f	module:Utilities
+tax_level_scale	Model_Parameters.f90	/^        real(8) :: tax_level_scale=/;"	v	module:Model_Parameters
+tax_prog_scale	Model_Parameters.f90	/^        real(8) :: tax_level_scale=1.0, tax_prog_scale=/;"	v	module:Model_Parameters
+tc	Model_Parameters.f90	/^        real(8), parameter :: tc /;"	v	module:Model_Parameters
+theta	Model_Parameters.f90	/^        real(8) :: theta(/;"	v	module:Model_Parameters
+thetas	Model_Parameters.f90	/^        real(8) :: theta(2), thetas(/;"	v	module:Model_Parameters
+tk	Model_Parameters.f90	/^        real(8), parameter :: tk /;"	v	module:Model_Parameters
+tprint	main.f90	/^    integer :: ik,tprint,/;"	v	program:Laffer
+trans_a	Model_Parameters.f90	/^        real(8), dimension (:,:,:), allocatable :: trans_a /;"	v	module:Model_Parameters
+trans_fc	Model_Parameters.f90	/^        real(8), dimension (:,:,:), allocatable :: trans_fc,/;"	v	module:Model_Parameters
+trans_fcm	Model_Parameters.f90	/^        real(8), dimension (:,:,:), allocatable :: trans_fc, trans_fcm /;"	v	module:Model_Parameters
+trans_u	Model_Parameters.f90	/^        real(8), dimension (:,:,:), allocatable :: trans_u /;"	v	module:Model_Parameters
+trilin_interp	Utilities.f90	/^    function trilin_interp(/;"	f	module:Utilities
+u	Model_Parameters.f90	/^        real(8), dimension (:,:), allocatable :: u,/;"	v	module:Model_Parameters
+v	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:), allocatable :: v,/;"	v	module:PolicyFunctions
+v_ret	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:,:,:), allocatable :: c_ret, v_ret,/;"	v	module:PolicyFunctions
+v_spln_coefs	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:), allocatable :: v_spln_coefs$/;"	v	module:PolicyFunctions
+vdum	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:), allocatable :: v,vdum$/;"	v	module:PolicyFunctions
+vs	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:), allocatable :: vs$/;"	v	module:PolicyFunctions
+vs_ret	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:), allocatable :: vs_ret,/;"	v	module:PolicyFunctions
+vs_spln_coefs	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:), allocatable :: evs_spln_coefs,/;"	v	module:PolicyFunctions
+w	Model_Parameters.f90	/^        real(8) :: w /;"	v	module:Model_Parameters
+wage	Utilities.f90	/^    function wage(/;"	f	module:Utilities
+wage_grid	PolicyFunctions.f90	/^        real(8), dimension (:), allocatable :: wage_grid$/;"	v	module:PolicyFunctions
+wagef	glob0.f90	/^    real(8) :: dum,kdum,itg,netinc,wagem,wagef,/;"	v	module:glob0
+wagem	glob0.f90	/^    real(8) :: dum,kdum,itg,netinc,wagem,/;"	v	module:glob0
+ybar	Model_Parameters.f90	/^        real(8), parameter :: ybar /;"	v	module:Model_Parameters
