@@ -1,17 +1,26 @@
 module SolveRetired_EGM
 use Model_Parameters
     implicit none
-    real(8), dimension(:,:,:,:,:,:,:,:,:,:,:), allocatable, target :: dev_ret
-    real(8), dimension (:,:,:,:,:,:,:), allocatable, target :: devs_ret
+
+    !real(8), dimension(:,:,:,:,:,:,:,:,:,:,:), allocatable :: dev_ret
+    !real(8), dimension (:,:,:,:,:,:,:), allocatable :: devs_ret
     real(8), dimension(:,:,:,:,:,:,:,:,:,:,:), allocatable, target :: evv_ret
     real(8), dimension (:,:,:,:,:,:,:), allocatable, target :: evvs_ret
+
+    type dev
+        real(8) :: f(nk)
+        integer :: ilo, ihi
+    end type dev
+
+    type(dev) :: dev_ret(2,2,nexp,nexp,na,nu,na,nu,nfc,nfc)
+    type(dev) :: devs_ret(2,2,nexp,na,nu,nfc)
 
 contains
 
     subroutine Initialize_Retired()
 
-        allocate(dev_ret(2,2,nk,nexp,nexp,na,nu,na,nu,nfc,nfc))
-        allocate(devs_ret(2,2,nk,nexp,na,nu,nfc))
+        !allocate(dev_ret(2,2,nk,nexp,nexp,na,nu,na,nu,nfc,nfc))
+        !allocate(devs_ret(2,2,nk,nexp,na,nu,nfc))
         allocate(evv_ret(2,2,nk,nexp,nexp,na,nu,na,nu,nfc,nfc))
         allocate(evvs_ret(2,2,nk,nexp,na,nu,nfc))
 
@@ -36,6 +45,7 @@ contains
         integer :: ifcm_plt, ifcf_plt
         real(8) :: evvs
         integer :: iu2, iu3
+        real(8) :: df
 
         !Singles
         do j = 1, 2
@@ -66,8 +76,8 @@ contains
                 k1 = k_grid(ik) + eps
                 v0 = LinInterp(k0,k_grid,ev_k_ptr,nk)
                 v1 = LinInterp(k1,k_grid,ev_k_ptr,nk)
-                devs_ret(i1,i2,ik,ix,ia,iu,ifc) = &
-                    (v1 - v0)/(2d0*eps)
+                df = (v1 - v0)/(2d0*eps)
+                devs_ret(i1,i2,ix,ia,iu,ifc)%f(ik) = df
             end do
         end do
         end do
@@ -128,8 +138,8 @@ contains
                 k1 = k_grid(ik) + eps
                 v0 = LinInterp(k0,k_grid,ev_k_ptr,nk)
                 v1 = LinInterp(k1,k_grid,ev_k_ptr,nk)
-                dev_ret(i1,i2,ik,ixm,ixf,iam,ium,iaf,iuf,ifcm,ifcf) = &
-                    (v1 - v0)/(2d0*eps)
+                df = (v1 - v0)/(2d0*eps)
+                dev_ret(i1,i2,ixm,ixf,iam,ium,iaf,iuf,ifcm,ifcf)%f(ik) = df
             end do
         end do
         end do
@@ -146,11 +156,12 @@ contains
         ia_plt = 3
         iu_plt = 3
         ifc_plt = 2
-        dev_plot = devs_ret(1,1,:,ix_plt,ia_plt,iu_plt,ifc_plt)
+        dev_plot = devs_ret(1,1,ix_plt,ia_plt,iu_plt,ifc_plt)%f
 
         call plt%initialize(grid=.true.,xlabel='k',&
             title='MU',legend=.true.)
-        call plt%add_plot(k_grid,dev_plot,label='MU (single)',linestyle='b-o',markersize=5,linewidth=2)
+        call plt%add_plot(k_grid,dev_plot,label='MU (single)',&
+            linestyle='b-o',markersize=5,linewidth=2)
 
         ixm_plt = 3
         ixf_plt = 2
@@ -160,10 +171,14 @@ contains
         iuf_plt = 2
         ifcm_plt = 3
         ifcf_plt = 2
-        dev_plot = dev_ret(1,1,:,ixm_plt,ixf_plt,iam_plt,ium_plt,iaf_plt,iuf_plt,ifcm_plt,ifcf_plt)
 
-        call plt%add_plot(k_grid,dev_plot,label='MU (married)',linestyle='r--',markersize=5,linewidth=2)
-        call plt%savefig('dev2.png', pyfile='dev.py')
+        dev_plot = &
+            dev_ret(1,1,ixm_plt,ixf_plt,iam_plt,ium_plt,iaf_plt,iuf_plt,&
+                ifcm_plt,ifcf_plt)%f
+
+        call plt%add_plot(k_grid,dev_plot,label='MU (married)',&
+            linestyle='r--',markersize=5,linewidth=2)
+        call plt%savefig('dev2.png', pyfile='dev2.py')
 
     end subroutine Compute_EV_DEV
 
