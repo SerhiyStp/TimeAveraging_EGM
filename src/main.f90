@@ -51,7 +51,7 @@ program Laffer
 
             do it=1,Tret
 
-                !write(*, "(1x,' Solving retired,age ',i0,A,$)") it, CHAR(13)
+                write(*, "(1x,' Solving retired,age ',i0,A,$)") it, CHAR(13)
 
                 !$OMP PARALLEL PRIVATE(ik)
                 !$OMP DO SCHEDULE(DYNAMIC)
@@ -63,25 +63,25 @@ program Laffer
                 
                 !$OMP PARALLEL PRIVATE(counter)
                 !$OMP DO SCHEDULE(DYNAMIC)
-                    do counter=1,nk*na*nu
-                        call SolveInRetirement2(counter)
-                    end do
+                do counter=1,nk*na*nu
+                    call SolveInRetirement2(counter)
+                end do
                 !$OMP END DO    
                 !$OMP END PARALLEL
 
                 !$OMP PARALLEL PRIVATE(counter)
                 !$OMP DO SCHEDULE(DYNAMIC)
-                    do counter=1,nk*na*nu
-                        call SolveInRetirement3(counter)
-                    end do
+                do counter=1,nk*na*nu
+                    call SolveInRetirement3(counter)
+                end do
                 !$OMP END DO    
                 !$OMP END PARALLEL
                 
                 !$OMP PARALLEL PRIVATE(counter)
                 !$OMP DO SCHEDULE(DYNAMIC)
-                    do counter=1,nk*na*nu
-                        call partest9(counter)
-                    end do
+                do counter=1,nk*na*nu
+                    call partest9(counter)
+                end do
                 !$OMP END DO    
                 !$OMP END PARALLEL
 
