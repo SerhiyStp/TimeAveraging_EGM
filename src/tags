@@ -3,15 +3,18 @@
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 10	pppack.f90	/^10 continue$/;"	l	subroutine:interv	file:
+10	zeroin.f90	/^10 c = a$/;"	l	function:zeroin	file:
 100	pppack.f90	/^100   continue$/;"	l	subroutine:cubspl	file:
 110	pppack.f90	/^110   continue$/;"	l	subroutine:cubspl	file:
 110	pppack.f90	/^110 continue$/;"	l	subroutine:interv	file:
 120	pppack.f90	/^120   continue$/;"	l	subroutine:cubspl	file:
 160	pppack.f90	/^160   continue$/;"	l	subroutine:cubspl	file:
 20	pppack.f90	/^20 continue$/;"	l	subroutine:interv	file:
+20	zeroin.f90	/^20 IF (ABS(fc) < ABS(fb)) THEN$/;"	l	function:zeroin	file:
 30	pppack.f90	/^30 continue$/;"	l	subroutine:interv	file:
+30	zeroin.f90	/^    30 a = b$/;"	l	function:zeroin	file:
 50	pppack.f90	/^50 continue$/;"	l	subroutine:interv	file:
 90	pppack.f90	/^90    continue$/;"	l	subroutine:cubspl	file:
 AE	Model_Parameters.f90	/^        real(8) :: AE /;"	v	module:Model_Parameters
@@ -21,6 +24,7 @@ EXP_KNOT	PolicyFunctions.f90	/^        real(8), dimension (:,:), allocatable :: 
 FNORM	glob0.f90	/^                XGUESS2(2), XLB2(2), XUB2(2), GRAD2(1,2),OBJ,FNORM$/;"	v	module:glob0
 Fc	Model_Parameters.f90	/^        real(8), dimension (:,:), allocatable :: Fc,/;"	v	module:Model_Parameters
 Fcm	Model_Parameters.f90	/^        real(8), dimension (:,:), allocatable :: Fc, Prob_fc, Fcm,/;"	v	module:Model_Parameters
+FindNonConvexRegion	SolveRetired_EGM.f90	/^    subroutine FindNonConvexRegion(/;"	s	module:SolveRetired_EGM
 GRAD	glob0.f90	/^                SOL(1), XGUESS(1), XLB(1), XUB(1), &$/;"	v	module:glob0
 GRAD2	glob0.f90	/^                XGUESS2(2), XLB2(2), XUB2(2), GRAD2(/;"	v	module:glob0
 Gamma_redistr	Model_Parameters.f90	/^        real(8) :: Gamma_redistr /;"	v	module:Model_Parameters
@@ -39,6 +43,7 @@ OBJ	glob0.f90	/^                XGUESS2(2), XLB2(2), XUB2(2), GRAD2(1,2),OBJ,/;"
 OmegaActive	Model_Parameters.f90	/^        real(8), dimension (:), allocatable :: OmegaRet, OmegaRet2, OmegaActive,/;"	v	module:Model_Parameters
 OmegaRet	Model_Parameters.f90	/^        real(8), dimension (:), allocatable :: OmegaRet,/;"	v	module:Model_Parameters
 OmegaRet2	Model_Parameters.f90	/^        real(8), dimension (:), allocatable :: OmegaRet, OmegaRet2,/;"	v	module:Model_Parameters
+OptimizeRetired	SolveRetired_EGM.f90	/^    subroutine OptimizeRetired(/;"	s	module:SolveRetired_EGM
 OptimizeRetired_LastPeriod	SolveRetired_EGM.f90	/^    subroutine OptimizeRetired_LastPeriod(/;"	s	module:SolveRetired_EGM
 PolicyFunctions	PolicyFunctions.f90	/^    module PolicyFunctions$/;"	m
 Prob_a	Model_Parameters.f90	/^        real(8), dimension (:,:), allocatable :: a, Prob_a /;"	v	module:Model_Parameters
@@ -66,8 +71,8 @@ SolveActiveLife	SolveActiveLife.f90	/^subroutine SolveActiveLife(/;"	s
 SolveInRetirement	SolveInRetirement.f90	/^subroutine SolveInRetirement(/;"	s
 SolveInRetirement2	SolveInRetirement.f90	/^subroutine SolveInRetirement2(/;"	s
 SolveInRetirement3	SolveInRetirement.f90	/^subroutine SolveInRetirement3(/;"	s
+SolveRetired_All	SolveRetired_EGM.f90	/^    subroutine SolveRetired_All(/;"	s	module:SolveRetired_EGM
 SolveRetired_EGM	SolveRetired_EGM.f90	/^module SolveRetired_EGM$/;"	m
-SolveRetired_Mode1	SolveRetired_EGM.f90	/^    subroutine SolveRetired_Mode1(/;"	s	module:SolveRetired_EGM
 Solvefirstactive	Solvefirstactive.f90	/^subroutine Solvefirstactive(/;"	s
 Solvelastactive	Solvelastactive.f90	/^subroutine Solvelastactive(/;"	s
 Statistics	Statistics.f90	/^subroutine Statistics$/;"	s
@@ -137,8 +142,9 @@ debttoGDP	Model_Parameters.f90	/^        real(8) :: debttoGDP=/;"	v	module:Model
 delta	Model_Parameters.f90	/^        real(8), parameter :: delta /;"	v	module:Model_Parameters
 deltaexp	Model_Parameters.f90	/^        real(8), parameter :: deltaexp /;"	v	module:Model_Parameters
 destroy	pyplot_module.f90	/^    subroutine destroy(/;"	s	module:pyplot_module
-dev_ret	SolveRetired_EGM.f90	/^    real(8), dimension(:,:,:,:,:,:,:,:,:,:,:), allocatable, target :: dev_ret$/;"	v	module:SolveRetired_EGM
-devs_ret	SolveRetired_EGM.f90	/^    real(8), dimension (:,:,:,:,:,:,:), allocatable, target :: devs_ret$/;"	v	module:SolveRetired_EGM
+dev	SolveRetired_EGM.f90	/^    type dev$/;"	t	module:SolveRetired_EGM
+dev_ret	SolveRetired_EGM.f90	/^    type(dev) :: dev_ret(/;"	v	module:SolveRetired_EGM
+devs_ret	SolveRetired_EGM.f90	/^    type(dev) :: devs_ret(/;"	v	module:SolveRetired_EGM
 dif_val	spline.f90	/^subroutine dif_val /;"	s
 dum	glob0.f90	/^    real(8) :: dum,/;"	v	module:glob0
 dum	main.f90	/^    real(8) :: dum,/;"	v	program:Laffer
@@ -172,6 +178,7 @@ exp2m	Model_Parameters.f90	/^        real(8), dimension (:,:,:,:), allocatable :
 expR1f	Model_Parameters.f90	/^        integer, dimension (:,:,:,:), allocatable :: exp1m,exp1f,expR1f,/;"	v	module:Model_Parameters
 expR1m	Model_Parameters.f90	/^        integer, dimension (:,:,:,:), allocatable :: exp1m,exp1f,expR1f,expR1m /;"	v	module:Model_Parameters
 exp_grid	PolicyFunctions.f90	/^        real(8), dimension (:,:), allocatable :: exp_grid$/;"	v	module:PolicyFunctions
+f	SolveRetired_EGM.f90	/^        real(8) :: f(/;"	k	type:dev
 fpartner	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:), allocatable :: fpartner,/;"	v	module:PolicyFunctions
 fpartnerdum	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:), allocatable :: fpartner,fpartnerdum,/;"	v	module:PolicyFunctions
 fpartnerdum2	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:), allocatable :: fpartner,fpartnerdum,fpartnerdum2$/;"	v	module:PolicyFunctions
@@ -179,6 +186,7 @@ gamma	Model_Parameters.f90	/^        real(8) :: gamma(/;"	v	module:Model_Paramet
 gamma0	Model_Parameters.f90	/^        real(8) :: gamma(2,3), gamma0 /;"	v	module:Model_Parameters
 gkdum	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:), allocatable :: k,gkdum$/;"	v	module:PolicyFunctions
 glob0	glob0.f90	/^module glob0$/;"	m
+hrs_foc	SolveRetired_EGM.f90	/^    function hrs_foc(/;"	f	module:SolveRetired_EGM
 i	main.f90	/^    in/;"	v	program:Laffer
 i_k	main.f90	/^    integer :: i_k,/;"	v	program:Laffer
 iaf	main.f90	/^    integer :: ik,tprint,it2,it3,it4,ium,iam,iuf,iaf,/;"	v	program:Laffer
@@ -230,6 +238,8 @@ least_val	spline.f90	/^subroutine least_val /;"	s
 least_val2	spline.f90	/^subroutine least_val2 /;"	s
 least_val_old	spline.f90	/^subroutine least_val_old /;"	s
 locate	Utilities.f90	/^    function locate(/;"	f	module:Utilities
+logic2dbl	SolveRetired_EGM.f90	/^    elemental pure double precision function logic2dbl(/;"	f	module:SolveRetired_EGM
+logicfunc	SolveRetired_EGM.f90	/^    elemental pure double precision function logicfunc(/;"	f	module:SolveRetired_EGM
 lsupply	lsupply.f90	/^subroutine lsupply(/;"	s
 lumpsum	Model_Parameters.f90	/^        real(8) :: Unemp_benefit, lumpsum=/;"	v	module:Model_Parameters
 lumpsumdum	Model_Parameters.f90	/^        real(8) :: Unemp_benefit, lumpsum=2d0*0.009366269879639575d0, lumpsumdum=/;"	v	module:Model_Parameters
@@ -253,6 +263,8 @@ mu_fcs	Model_Parameters.f90	/^        real(8), parameter :: mu_fcm=-1.70d0, mu_f
 mu_fcsm	Model_Parameters.f90	/^        real(8), parameter :: mu_fcmm=-0.60d0, mu_fcsm=/;"	v	module:Model_Parameters
 na	Model_Parameters.f90	/^        integer, parameter :: na /;"	v	module:Model_Parameters
 nc	Model_Parameters.f90	/^        integer, parameter :: nc /;"	v	module:Model_Parameters
+nc_ihi	SolveRetired_EGM.f90	/^        integer :: nc_ilo, nc_ihi$/;"	k	type:dev
+nc_ilo	SolveRetired_EGM.f90	/^        integer :: nc_ilo,/;"	k	type:dev
 netinc	glob0.f90	/^    real(8) :: dum, kdum, itg, netinc,/;"	v	module:glob0
 nexp	Model_Parameters.f90	/^        integer, parameter :: nexp /;"	v	module:Model_Parameters
 nf	PolicyFunctions.f90	/^        real(8), dimension (:,:,:,:,:,:,:,:,:,:), allocatable :: nm,nf,/;"	v	module:PolicyFunctions
@@ -395,3 +407,8 @@ wagef	glob0.f90	/^    real(8) :: dum, kdum, itg, netinc, wagem, wagef,/;"	v	modu
 wagem	glob0.f90	/^    real(8) :: dum, kdum, itg, netinc, wagem,/;"	v	module:glob0
 wp	pyplot_module.f90	/^    integer, parameter, private :: wp /;"	v	module:pyplot_module
 ybar	Model_Parameters.f90	/^        real(8), parameter :: ybar /;"	v	module:Model_Parameters
+z_a	SolveRetired_EGM.f90	/^    real(8) :: z_a,/;"	v	module:SolveRetired_EGM
+z_b	SolveRetired_EGM.f90	/^    real(8) :: z_a, z_b,/;"	v	module:SolveRetired_EGM
+z_c	SolveRetired_EGM.f90	/^    real(8) :: z_a, z_b, z_c$/;"	v	module:SolveRetired_EGM
+z_eta	SolveRetired_EGM.f90	/^    real(8) :: z_eta$/;"	v	module:SolveRetired_EGM
+zeroin	zeroin.f90	/^FUNCTION zeroin(/;"	f

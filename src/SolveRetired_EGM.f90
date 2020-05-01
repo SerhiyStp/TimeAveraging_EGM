@@ -2,14 +2,17 @@ module SolveRetired_EGM
 use Model_Parameters
     implicit none
 
-    !real(8), dimension(:,:,:,:,:,:,:,:,:,:,:), allocatable :: dev_ret
-    !real(8), dimension (:,:,:,:,:,:,:), allocatable :: devs_ret
     real(8), dimension(:,:,:,:,:,:,:,:,:,:,:), allocatable, target :: evv_ret
     real(8), dimension (:,:,:,:,:,:,:), allocatable, target :: evvs_ret
 
+    real(8) :: z_a, z_b, z_c
+    real(8) :: z_eta
+
     type dev
         real(8) :: f(nk)
-        integer :: ilo, ihi
+        integer :: nc_ilo, nc_ihi
+    contains
+        procedure :: FindNonConvexRegion
     end type dev
 
     type(dev) :: dev_ret(2,2,nexp,nexp,na,nu,na,nu,nfc,nfc)
@@ -17,10 +20,27 @@ use Model_Parameters
 
 contains
 
-    subroutine Initialize_Retired()
+    subroutine SolveRetired_All()
 
-        !allocate(dev_ret(2,2,nk,nexp,nexp,na,nu,na,nu,nfc,nfc))
-        !allocate(devs_ret(2,2,nk,nexp,na,nu,nfc))
+        call OptimizeRetired_LastPeriod()
+        call Compute_EV_DEV(Tret)
+        call OptimizeRetired(Tret-1)
+        
+    end subroutine SolveRetired_All
+
+    function hrs_foc(h) result(fval)
+        implicit none
+        real(8), intent(in) :: h
+        real(8) :: fval
+
+        fval = z_a*h**z_eta - z_b*h**(-theta(2)) + z_c
+        
+    end function hrs_foc
+
+    subroutine Initialize_Retired()
+        integer :: j, ic, ia, iu, ix
+        integer :: ia2, iu2, ix2
+
         allocate(evv_ret(2,2,nk,nexp,nexp,na,nu,na,nu,nfc,nfc))
         allocate(evvs_ret(2,2,nk,nexp,na,nu,nfc))
 
@@ -119,7 +139,6 @@ contains
         !Married (both retired)
         evv_ret(1,1,:,:,:,:,:,:,:,:,:) = v_ret(1,1,:,:,:,:,:,:,:,i_t,:,:)
 
-
         do i1 = 1, 2
         do i2 = 1, 2
         do ixm = 1, nexp
@@ -132,7 +151,6 @@ contains
         do ifcf = 1, nfc
             ev_k_ptr => &
                 evv_ret(i1,i2,:,ixm,ixf,iam,ium,iaf,iuf,ifcm,ifcf)
-                !ev_ret(i1,i2,:,ixm,ixf,iam,ium,iaf,iuf,i_t,ifcm,ifcf)
             do ik = 1, nk
                 k0 = k_grid(ik) - eps
                 k1 = k_grid(ik) + eps
@@ -178,7 +196,8 @@ contains
 
         call plt%add_plot(k_grid,dev_plot,label='MU (married)',&
             linestyle='r--',markersize=5,linewidth=2)
-        call plt%savefig('dev2.png', pyfile='dev2.py')
+        !call plt%savefig('dev3.png', pyfile='dev2.py')
+        call plt%savefig('dev3.png')
 
     end subroutine Compute_EV_DEV
 
@@ -207,9 +226,126 @@ contains
         
     end subroutine OptimizeRetired_LastPeriod
 
-    subroutine SolveRetired_Mode1(i_t)
+    subroutine OptimizeRetired(i_t) 
         integer :: i_t
-        
-    end subroutine SolveRetired_Mode1
+        integer :: i1, i2, ixm, ixf, iam, ium, iaf, iuf, ifm, iff
+        integer :: j, i, ix, ia, iu, ifc
+        integer :: ik
+        real(8) :: d_ev
+        real(8) :: ap_a_map_s(nk, nk, 2)
+        real(8) :: cc, hh
+        real(8) :: hlo, hhi, aerr, rerr
+        real(8) :: zeroin
+        external :: zeroin
+
+        do i1 = 1, 2
+        do i2 = 1, 2
+        do ixm = 1, nexp
+        do ixf = 1, nexp
+        do iam = 1, na
+        do ium = 1, nu
+        do iaf = 1, na
+        do iuf = 1, nu
+        do ifm = 1, nfc
+        do iff = 2, nfc
+            call dev_ret(i1,i2,ixm,ixf,&
+                iam,ium,iaf,iuf,ifm,iff)%FindNonConvexRegion() 
+        end do
+        end do
+        end do
+        end do
+        end do
+        end do
+        end do
+        end do
+        end do
+        end do
+
+        do j = 1, 2
+        do i = 1, 2
+        do ix = 1, nexp
+        do ia = 1, na
+        do iu = 1, nu
+        do ifc = 1, nfc
+            call devs_ret(j,i,ix,ia,iu,ifc)%FindNonConvexRegion()
+            do ik = 1, nk
+                d_ev = devs_ret(j,i,ix,ia,iu,ifc)%f(ik)
+                cc = 1d0/(beta*OmegaRet(i_t+1)*d_ev*(1d0+tc))
+                hlo = 1d-6
+                hhi = 100d0
+                aerr = 1d-5
+                rerr = 1d-5
+                hh = zeroin(hrs_foc, hlo, hhi, aerr, rerr)
+            end do 
+        end do
+        end do
+        end do
+        end do
+        end do
+        end do
+
+    end subroutine OptimizeRetired
+
+    subroutine FindNonConvexRegion(this)
+        class(dev) :: this
+        integer, dimension(nk) :: INCR_IDX_H, INCR_IDX_L, ILO_IDX, IHI_IDX
+        real(8) :: vmax, vmin
+        logical :: ldv_ncr, ldv_gv, ldv_sv
+        integer :: ia
+        integer :: ilo, ihi
+
+        do ia = 2, nk
+            ldv_ncr          = this%f(ia) .gt. this%f(ia-1)
+            INCR_IDX_H(ia-1) = logicfunc(ldv_ncr)
+            INCR_IDX_L(ia)   = logicfunc(ldv_ncr)
+        end do
+
+        if( maxval(INCR_IDX_H) .ne. 0) then
+            vmin = minval(this%f, mask = INCR_IDX_H .eq. 1)
+            vmax = maxval(this%f, mask = INCR_IDX_L .eq. 1)
+            do ia = 1, nk
+                ldv_gv      = this%f(ia) .gt. vmax
+                ILO_IDX(ia) = logicfunc(ldv_gv)*ia
+            end do
+            if( maxval(ILO_IDX) .ne. 0) then
+                ilo = maxval(ILO_IDX, mask = ILO_IDX .gt. 0) !sum(ILO_IDX)-1
+            else
+                ilo = 1
+            end if
+            do ia = 1, nk
+                ldv_sv      = this%f(ia) .lt. vmin
+                IHI_IDX(ia) = logicfunc(ldv_sv)*ia
+            end do
+            if( maxval(IHI_IDX) .ne. 0) then
+                ihi = minval(IHI_IDX, mask = IHI_IDX .gt. 0) !N-sum(IHI_IDX)+1
+            else
+                ihi = 1
+            end if
+        else
+            ilo = nk + 1
+            ihi = 0
+        end if
+        this%nc_ilo = ilo
+        this%nc_ihi = ihi
+
+    end subroutine FindNonConvexRegion
+
+    elemental pure double precision function logic2dbl(a)
+        logical, intent(in) :: a
+        if (a) then
+            logic2dbl = 1.d0
+        else
+            logic2dbl = 0.d0
+        end if
+    end function logic2dbl
+    
+    elemental pure double precision function logicfunc(a)
+        logical, intent(in) :: a
+        if (a) then
+            logicfunc = 1
+        else
+            logicfunc = 0
+        end if
+    end function logicfunc
 
 end module SolveRetired_EGM

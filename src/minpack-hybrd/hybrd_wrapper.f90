@@ -93,7 +93,7 @@ contains
         
     end subroutine init
 
-    subroutine getSoln(this, guess, n, sub1, sol, fnorm)
+    subroutine getSoln(this, guess, n, sub_fn, sol, fnorm)
         class(Hybrd_problem) :: this
         integer :: n
         integer :: nprint, info, nfev
@@ -102,11 +102,17 @@ contains
         real(8) :: fjac(this%ldfjac,n), r(this%lr)
         real(8), dimension(n) :: qtf(n), wa1(n), wa2(n), wa3(n), wa4(n)
         real(8) :: fnorm
-        external :: sub1
+        !external :: sub1
+        interface
+            subroutine sub_fn(ni,xi,fveci,iflagi)
+                integer :: ni, iflagi
+                real(8) :: xi(ni), fveci(ni)
+            end subroutine sub_fn
+        end interface
         
         x = guess
         nprint = 0
-        call hybrd(sub1, n, x, fvec, &
+        call hybrd(sub_fn, n, x, fvec, &
                     this%tol, this%maxfev, this%ml, this%mu, this%epsfcn, &
                     diag, this%mode, this%factor, nprint, info, nfev, fjac, &
                     this%ldfjac, r, this%lr, qtf, wa1, wa2, wa3, wa4)	

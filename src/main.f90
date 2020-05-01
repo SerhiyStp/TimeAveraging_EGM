@@ -49,9 +49,11 @@ program Laffer
             !$OMP END DO    
             !$OMP END PARALLEL
 
+            call SolveRetired_All()
+
             do it=1,Tret
 
-                write(*, "(1x,' Solving retired,age ',i0,A,$)") it, CHAR(13)
+                !write(*, "(1x,' Solving retired,age ',i0,A,$)") it, CHAR(13)
 
                 !$OMP PARALLEL PRIVATE(ik)
                 !$OMP DO SCHEDULE(DYNAMIC)

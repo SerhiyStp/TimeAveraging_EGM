@@ -7,7 +7,7 @@ DMOD    = mod/
 DEXE    = ./
 LIBS    =
 FC      = gfortran-8
-OPTSC   = -c -std=f2008 -ffree-line-length-512 -J mod
+OPTSC   = -c -J mod -std=f2008 -ffree-line-length-512 -g 
 OPTSL   =  -J mod
 VPATH   = $(DSRC) $(DOBJ) $(DMOD)
 MKDIRS  = $(DOBJ) $(DMOD) $(DEXE)
@@ -33,6 +33,7 @@ $(DEXE)MAIN: $(MKDIRS) $(DOBJ)main.o \
 	$(DOBJ)solvefirstactive.o \
 	$(DOBJ)statistics.o \
 	$(DOBJ)solvelastactive.o \
+	$(DOBJ)zeroin.o \
 	$(DOBJ)lsupply.o \
 	$(DOBJ)qrfac.o \
 	$(DOBJ)hybrd.o \
@@ -178,6 +179,10 @@ $(DOBJ)pppack.o: ./src/pppack.f90
 $(DOBJ)policyfunctions.o: ./src/PolicyFunctions.f90 \
 	$(DOBJ)model_parameters.o \
 	$(DOBJ)pppack.o
+	@echo $(COTEXT)
+	@$(FC) $(OPTSC)  $< -o $@
+
+$(DOBJ)zeroin.o: ./src/zeroin.f90
 	@echo $(COTEXT)
 	@$(FC) $(OPTSC)  $< -o $@
 
