@@ -41,13 +41,13 @@ program Laffer
             dum2= 1.5d0*wage(1,a(1,5),dble(T),u(1,5))/(1d0+t_employer)
             call MakeGrid(nw,wage_grid,0.01d0,dum2,2d0)
 
-            !$OMP PARALLEL PRIVATE(ik)
-            !$OMP DO SCHEDULE(DYNAMIC)
-            do ik=1,nc
-                call lsupply(ik)
-            end do
-            !$OMP END DO    
-            !$OMP END PARALLEL
+            !!$OMP PARALLEL PRIVATE(ik)
+            !!$OMP DO SCHEDULE(DYNAMIC)
+            !do ik=1,nc
+                !call lsupply(ik)
+            !end do
+            !!$OMP END DO    
+            !!$OMP END PARALLEL
 
             call SolveRetired_All()
 

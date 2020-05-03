@@ -8,10 +8,10 @@ DEXE    = ./
 LIBS    =
 #FC      = gfortran-8
 FC      = ifort
-#OPTSC   = -c -std=f2008 -ffree-line-length-512 -J mod
-OPTSC   = -c -module mod -O3 -openmp
+#OPTSC   = -c -J mod -std=f2008 -ffree-line-length-512 -g 
+OPTSC   = -c -module mod -g -traceback -O0 #-openmp
 #OPTSL   =  -J mod
-OPTSL   =  -module mod -openmp
+OPTSL   =  -module mod #-openmp
 VPATH   = $(DSRC) $(DOBJ) $(DMOD)
 MKDIRS  = $(DOBJ) $(DMOD) $(DEXE)
 LCEXES  = $(shell echo $(EXES) | tr '[:upper:]' '[:lower:]')
@@ -36,6 +36,7 @@ $(DEXE)MAIN: $(MKDIRS) $(DOBJ)main.o \
 	$(DOBJ)solvefirstactive.o \
 	$(DOBJ)statistics.o \
 	$(DOBJ)solvelastactive.o \
+	$(DOBJ)zeroin.o \
 	$(DOBJ)lsupply.o \
 	$(DOBJ)qrfac.o \
 	$(DOBJ)hybrd.o \
@@ -181,6 +182,10 @@ $(DOBJ)pppack.o: ./src/pppack.f90
 $(DOBJ)policyfunctions.o: ./src/PolicyFunctions.f90 \
 	$(DOBJ)model_parameters.o \
 	$(DOBJ)pppack.o
+	@echo $(COTEXT)
+	@$(FC) $(OPTSC)  $< -o $@
+
+$(DOBJ)zeroin.o: ./src/zeroin.f90
 	@echo $(COTEXT)
 	@$(FC) $(OPTSC)  $< -o $@
 

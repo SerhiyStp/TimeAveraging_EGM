@@ -33,7 +33,7 @@ contains
         real(8), intent(in) :: h
         real(8) :: fval
 
-        fval = z_a*h**z_eta - z_b*h**(-theta(2)) + z_c
+        fval = z_a*h**z_eta - z_b*h**(-thetas(2)) + z_c
         
     end function hrs_foc
 
@@ -227,15 +227,21 @@ contains
     end subroutine OptimizeRetired_LastPeriod
 
     subroutine OptimizeRetired(i_t) 
+    use Utilities, only: wage
+    use PolicyFunctions
         integer :: i_t
         integer :: i1, i2, ixm, ixf, iam, ium, iaf, iuf, ifm, iff
         integer :: j, i, ix, ia, iu, ifc
         integer :: ik
         real(8) :: d_ev
         real(8) :: ap_a_map_s(nk, nk, 2)
-        real(8) :: cc, hh
+        real(8) :: cc, hh, ww
         real(8) :: hlo, hhi, aerr, rerr
+        real(8) :: chi_loc, eta_loc
+        real(8) :: f0, f1
         real(8) :: zeroin
+        integer, parameter :: n = 50
+        real(8) :: hgrid(n), fvals(n), dh
         external :: zeroin
 
         do i1 = 1, 2
@@ -261,23 +267,45 @@ contains
         end do
         end do
 
+        dh = (1d0)/(n-1)
+        hgrid = [(dh*i, i=0, n-1)]*(1d0-1d-9) + 1d-9
         do j = 1, 2
-        do i = 1, 2
+        if (j == 1) then
+            chi_loc = chim
+            eta_loc = etam
+        else
+            chi_loc = chif
+            eta_loc = etaf
+        end if
         do ix = 1, nexp
         do ia = 1, na
         do iu = 1, nu
+        ww = wage(j,a(j,iam),exp_grid(ix,T+Tret+i_t),u(j,ium))/(1d0+t_employer)
         do ifc = 1, nfc
-            call devs_ret(j,i,ix,ia,iu,ifc)%FindNonConvexRegion()
+            !Working
+            call devs_ret(j,2,ix,ia,iu,ifc)%FindNonConvexRegion()
             do ik = 1, nk
-                d_ev = devs_ret(j,i,ix,ia,iu,ifc)%f(ik)
-                cc = 1d0/(beta*OmegaRet(i_t+1)*d_ev*(1d0+tc))
-                hlo = 1d-6
-                hhi = 100d0
+                d_ev = devs_ret(j,2,ix,ia,iu,ifc)%f(ik)
+                cc = 1d0/(beta*OmegaRet(i_t)*d_ev*(1d0+tc))
+                hlo = 1d-9
+                hhi = 1d0
                 aerr = 1d-5
                 rerr = 1d-5
+                z_a = chi_loc*cc*(1d0+tc)
+                z_b = thetas(1)*(1d0-thetas(2))*ww**(1d0-thetas(2))
+                !print *, t_employer
+                z_c = t_employer*ww
+                f0 = hrs_foc(hlo)
+                f1 = hrs_foc(hhi)
+                open(23,file='test.txt')
+                do i = 1, n
+                    fvals(i) = hrs_foc(hgrid(i))
+                    write(23,'(2f12.6)') hgrid(i), fvals(i)
+                end do
+                close(23)
                 hh = zeroin(hrs_foc, hlo, hhi, aerr, rerr)
+                f0 = hrs_foc(hh)
             end do 
-        end do
         end do
         end do
         end do
